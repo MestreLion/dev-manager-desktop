@@ -16,7 +16,7 @@ env:
 jobs:
   sentry-create-release:
     name: Create Sentry Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v4
 
@@ -57,7 +57,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ windows-latest, ubuntu-20.04, macos-latest ]
+        os: [ windows-latest, ubuntu-18.04, macos-latest ]
 
     runs-on: ${{ matrix.os }}
 
@@ -156,7 +156,7 @@ jobs:
 
   sentry-finalize-release:
     name: Finalize Sentry Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: [ sentry-create-release, build ]
     steps:
       - uses: actions/checkout@v4
